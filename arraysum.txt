@@ -1,0 +1,10 @@
+public static int simpleArraySum(List<Integer> ar) {
+        // Write your code here
+        Integer Total = 0;
+        for (Integer I : ar) {
+            Total += I;
+        }
+        return Total;
+
+
+    }
