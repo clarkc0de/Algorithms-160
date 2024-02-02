@@ -1,1 +1,2 @@
 # Algorithms-160
+For the both questions, the largest time component is a for loop that makes a series of constant time checks and operaions dependant on the size of the problem. This makes them both O(n).
