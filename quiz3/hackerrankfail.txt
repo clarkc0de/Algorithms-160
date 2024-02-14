@@ -1,0 +1,22 @@
+public static String hackerrankInString(String s) {
+    // Write your code here
+    String Target = "hackerrank";
+    if (s=="hackerrank"){
+        return "YES";
+    }
+    for(int i = 0; i<Target.length();i++){
+        if(i==0){
+            if (s.charAt(i)!=0){
+                return hackerrankInString(s.substring(1));
+            }
+        }
+        else{
+        
+        
+        if (s.charAt(i)!=Target.charAt(i)){
+            return hackerrankInString(s.substring(0, i-1)+s.substring(i+1, s.length()));
+        }
+    }}
+    return "NO";
+
+    }}

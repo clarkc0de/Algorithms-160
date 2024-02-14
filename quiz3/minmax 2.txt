@@ -1,0 +1,47 @@
+
+public static void miniMaxSum(List<Integer> arr) {
+    // Write your code here
+    long mas = 0;
+    long mis =0;
+    long min = arr.get(0);
+    long max = arr.get(0);
+    Boolean maxc = false;
+    Boolean minc=false;
+    for (Integer I: arr){
+        if (I >max){
+            max=I;
+        }
+        if (I<min){
+            min=I;
+        }
+    }
+    for (Integer i: arr){
+        if (i!= max){
+            mis+=i;
+           
+        }
+        if(i!=min){
+            mas+=i;
+            
+        }
+        if(i ==max){
+            if(maxc==false){
+                maxc=true;
+            }
+            else{
+                mas+=i;
+                
+            }
+        }
+        if(i ==min){
+            if(minc==false){
+                minc=true;
+            }
+            else{
+                mis+=i;
+                
+            }
+        }
+    }
+    System.out.println(mis + " "+ mas);
+    }
