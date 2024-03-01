@@ -1,0 +1,1 @@
+For diagonal difference, because the function only cares about the size of the matrix, adding each diagional to a total, the run time is O(n), where n is the dimensions of the array. Similarly, because it only makes a static number f variables, the space complexity is dependent on the size of the array it has to remember for the function, making it also O(n). 
