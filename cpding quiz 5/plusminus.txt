@@ -1,0 +1,26 @@
+public static void plusMinus(List<Integer> arr) {
+    // Write your code here
+    float P=0;
+    float N=0;
+    float Z=0;
+    for (Integer i: arr){
+        if(i<0){
+            N++;
+        }
+        if(i>0){
+            P++;
+        }
+        if(i==0){
+           Z++; 
+        }
+    }
+    float Pr =P/arr.size();
+    float Nr =N/arr.size();
+    float Zr =Z/arr.size();
+    System.out.println(Pr);
+    System.out.println(Nr);
+    System.out.println(Zr);
+
+    }
+
+}
