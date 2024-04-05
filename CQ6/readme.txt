@@ -1,0 +1,3 @@
+Insertion sort part two has a time complexity of n^2 because of the double nested for loop, and constant space, because none of the variable change how much memory thy take based on input size.
+
+I wasn't able to create a recursive solution within the time, but it would likelylook very similar to my dynamic solution, except that the helper functions would call themselves with the current maximums a input to comare to.

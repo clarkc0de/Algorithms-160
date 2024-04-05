@@ -1,0 +1,38 @@
+public static List<Integer> maxSubarray(List<Integer> arr) {
+        int subarray = Solvesubarray(arr);
+        int subseq = Solvesubseq(arr);
+        System.out.println(subarray + " " + subseq);
+        ArrayList<Integer> q = new ArrayList<>();
+        q.add(subarray);
+        q.add(subseq);
+        return q;
+    }
+     public static int Solvesubarray(List<Integer> arr) {
+        int ifdone = arr.get(0);
+        int ifnot = arr.get(0);
+        for (int i = 1; i < arr.size(); i++) {
+            ifdone = Math.max(arr.get(i), arr.get(i)+ifdone);
+            ifnot = Math.max(ifdone, ifnot);
+        }
+        return ifnot;
+    }
+
+    public static int Solvesubseq(List<Integer> arr) {
+        int best = 0;
+        int max = Collections.max(arr);
+
+        for (int i = 0; i < arr.size(); i++) {
+            if (arr.get(i) > 0)
+                best += arr.get(i);
+        }
+
+        if (best == 0){
+            return max;
+        }
+        else{
+        return best;
+        }
+    }
+
+
+}
