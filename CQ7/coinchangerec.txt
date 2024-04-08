@@ -1,0 +1,21 @@
+public static long Solve(int n, int m, List<Long> c){
+        if(n==0){
+            return 1;
+        }
+        if(n<0){
+            return 0;
+        }
+        if (m<=0){
+            return 0;
+        }
+        Long[] A = c.toArray(new Long[0]);
+        int sub = A[m-1].intValue();
+        return Solve(n, m-1, c)+Solve(n-sub, m, c);
+    }
+    
+    public static long getWays(int n, List<Long> c) {
+    // Write your code here
+    int m = c.size();
+    return Solve(n, m, c);
+
+    }

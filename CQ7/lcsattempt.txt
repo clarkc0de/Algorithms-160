@@ -1,0 +1,43 @@
+    private static List<Integer> lcsHelper(List<Integer> a, List<Integer> b, int i, int j, Map<String, List<Integer>> memo) {
+        if (i < 0 || j < 0) {
+            return new ArrayList<>();
+        }
+        String key = i+"_"+j;
+        if(memo.containsKey(key)){
+            return new ArrayList<>(memo.get(key));
+        }
+        if(a.get(i)==b.get(j)){
+            List<Integer> lcs= lcsHelper(a, b, i - 1, j - 1, memo);
+            lcs.add(a.get(i));
+            return lcs;
+        }
+        else{
+            List<Integer> lcsi = lcsHelper(a, b, i - 1, j, memo);
+            List<Integer> lcsj = lcsHelper(a, b, i, j - 1, memo);
+            List<Integer> ans;
+            if(lcsi.size()>lcsj.size()){
+                 ans= lcsi;
+            }
+            else{
+                 ans= lcsj;
+            }
+            memo.put(key, ans);
+            return ans;
+        }
+        
+        }
+
+    public static List<Integer> LCS(List<Integer> a, List<Integer> b) {
+        Map<String, List<Integer>> memo = new HashMap<>();
+        return lcsHelper(a, b, a.size() - 1, b.size() - 1, memo);
+    }
+    
+    public static List<Integer> longestCommonSubsequence(List<Integer> a, List<Integer> b) {
+    // Write your code here
+    List<Integer> lcs = LCS(a, b);
+        for (int num : lcs) {
+            System.out.print(num + " ");
+        }
+        return lcs;
+
+    }
