@@ -1,0 +1,15 @@
+public static void staircase(int n) {
+    // Write your code here
+    for (int i=1;i<=n; i++){
+        String line="";
+        for (int j=0; j<n-i; j++){
+            line+=" ";
+        }
+        for(int k = 0; k<i; k++){
+            line+="#";
+        }
+        System.out.println(line);
+        
+    }
+
+    }

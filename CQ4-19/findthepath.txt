@@ -1,0 +1,30 @@
+sh(List<Integer> c, List<Integer> t, List<List<Integer>> a){
+children[];
+if (c==t){ <<if the current node is the target node>>
+return c.weight;
+}
+
+for each edge(c,v){   
+if !v.hasparent(c){  <<if the algorithm has not traversed this edge yet>>
+v.giveparent(c)
+children.add(v);
+}
+}
+
+if children.isemtpy(){ <<no edges found that hasn't been traversed>>
+return infinity; <<this call never found the target>>
+}
+else{
+return min(sh(v,t) for v in children)+c.weight;  <<check all possible edge paths>>
+}
+}
+
+<<"parent" isn't directly defined here, but it would likely be a global dictionary, keeping
+track of index pairs as kys and lists of index pairs as values, so that each node knows which
+nodes has visited it. This way, we can "mark" edges in a direction instead of nodes, and test all possibilities.
+If the path itself is wanted instead of the minimum weight, each call can also be modified to keep
+track of where they've gone.>>
+
+<<Intuition: Because this graph is a two dimensional array, there's always going to be a path to
+the target. if we iterate through every edge, we should find every path that possibly leads to
+the target array, so all we need is the minimum of what is found.>>
